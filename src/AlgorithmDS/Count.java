@@ -1,4 +1,4 @@
-package Leetcode;
+package AlgorithmDS;
 import java.util.HashMap;
 
 public class Count {
