@@ -1,4 +1,4 @@
-package JavaSE;
+package JavaSE.DataStructure;
 import javax.swing.text.html.HTMLDocument;
 import java.util.*;
 

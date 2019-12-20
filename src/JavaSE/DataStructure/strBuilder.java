@@ -1,4 +1,4 @@
-package JavaSE;
+package JavaSE.DataStructure;
 
 public class strBuilder {
 
