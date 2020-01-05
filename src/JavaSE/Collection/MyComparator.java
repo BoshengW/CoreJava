@@ -3,8 +3,6 @@ import java.util.*;
 
 public class MyComparator {
 
-
-
     // Sort by your defined rule, you can use comparable
     static class Car implements Comparable<Car> {
         private int age;

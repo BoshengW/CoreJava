@@ -6,8 +6,8 @@ public class NestClass {
     public void dispMemberClass() {
         inner1 in1 = new inner1();
         in1.show();
-
     }
+
     class inner1 {
         public void show() {
             System.out.println("Inner class Member Class");
@@ -29,6 +29,15 @@ public class NestClass {
         }
 
     }
+    /*
+    Anonymous class
+    Date d = new Date() {
+        @Override //可以不用extends也可以不用implements 父类就可以进行改写
+        public String toString() {
+
+        }
+    }
+    */
 
     // Inner class instantiated outside Outer class
     /*
@@ -43,16 +52,16 @@ public class NestClass {
         nest.dispLocalInnerClass();
         // Annoymous class
         Animal an = new Animal() {
+            @Override
             public void type(){
                 System.out.println("Anonymous class");
             }
-
+            @Override
             public void show() {
                 System.out.println("instanlizing interface methods");
             }
         };
         an.type();
-
         // if you just want to implement a single method rather than a whole interface
 
     }

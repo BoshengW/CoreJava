@@ -36,5 +36,6 @@ public class TwoSum {
         index = tsObj.getIndex(array,5);
 
 
+
     }
 }
