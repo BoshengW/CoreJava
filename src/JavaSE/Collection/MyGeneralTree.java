@@ -1,60 +1,75 @@
 package JavaSE.Collection;
 
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class MyGeneralTree {
 
     static class Node {
-        public int key;
-        public ArrayList<Node> child = new ArrayList<>();
-        public Node(int key){
-            this.key=key;
-        }
+        int key;
+        Vector<Node> child = new Vector<>();
     }
-    static class GeneralTree{
-        Node root;
-        public GeneralTree(Node rootNode) {
-            this.root.key = rootNode.key;
-            this.root.child = rootNode.child;
+
+    static Node newNode(int key) {
+        Node temp = new Node();
+        temp.key = key;
+        return temp;
+    }
+    static String Dfs(Node currNode, int level) {
+        System.out.println("level: " + level + ",value:" + currNode.key);
+        for(Node c: currNode.child) {
+            Dfs(c, level+1);
         }
+        return "";
+    }
 
-        public void addNewNode(Node injectPoint, Node newNode) {
-            injectPoint.child.add(newNode);
+    static String BfsIter(Node root) {
+        Queue<Node> q = new LinkedList<>();
+        Queue<Node> s = new LinkedList<>();
+        if(root!=null) {
+            q.add(root);
+            s.add(root);
         }
-
-
-        public String Dfs(Node currNode, int level) {
-            //
-            System.out.println("level: " + currNode.key);
+        int level = 0;
+        while(!q.isEmpty()) {
+            Node currNode = q.remove();
             for(Node c: currNode.child) {
-                Dfs(c,level+1);
+
+                if(c!=null) {
+                    q.add(c);
+                    s.add(c);
+                }
             }
-            return "";
-
         }
-
-        public void displayTreeInDFS() {
-            String a = Dfs(root, 0);
+        for(Node m: s) {
+            System.out.println(m.key);
         }
-
-        public void displayTreeBFS() {
-
-        }
+        return "";
     }
 
+    static void displayTreeInDFS(Node root) {
+        if(root==null) return;
+        Dfs(root, 0);
 
+    }
 
+//        public void displayTreeInDFS() {
+//            String a = Dfs(root, 0);
+//        }
 
+//        public void displayTreeBFS() {
+//
+//        }
     public static void main(String[] args) {
-        Node FirstNode = new Node(0);
-        MyGeneralTree.GeneralTree myTree = new MyGeneralTree.GeneralTree(FirstNode);
-        Node Second = new Node(1);
-        Node Third = new Node(2);
-        myTree.addNewNode(myTree.root, Second);
-        myTree.addNewNode(myTree.root, Third);
-        myTree.displayTreeInDFS();
-
+        Node root = newNode(10);
+        root.child.add(newNode(2));
+        root.child.add(newNode(34));
+        root.child.add(newNode(56));
+        root.child.add(newNode(100));
+        // first child node "2"
+        root.child.get(0).child.add(newNode(77));
+        displayTreeInDFS(root);
+        BfsIter(root);
     }
 
 }
