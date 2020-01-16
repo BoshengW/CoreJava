@@ -43,7 +43,6 @@ public class MyHashTable<K,V> {
 
         // Reference to next node
         HashNode<K,V> next;
-
         public HashNode(K key,V value) {
             this.key = key;
             this.value = value;
@@ -69,9 +68,7 @@ public class MyHashTable<K,V> {
         for(int i=0;i<numBuckets;i++) {
             bucketArray.add(null);
         }
-
     }
-
     // This implements hash function to find index
     // for a key
     private int getBucketIndex(K key) {
@@ -152,10 +149,7 @@ public class MyHashTable<K,V> {
                     headNode = headNode.next;
                 }
             }
-
         }
-
-
     }
     public int size() {
         return size;
@@ -168,7 +162,5 @@ public class MyHashTable<K,V> {
     public static void main(String[] args) {
         String var = new String("ksda");
         System.out.println(var.hashCode());
-
-
     }
 }
