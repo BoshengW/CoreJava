@@ -8,8 +8,9 @@ public class Singleton {
 
     private Singleton() {
     }
-
+    // thread-safe
     public static Singleton getInstance() {
         return InnerSingleton.instance;
     }
+
 }

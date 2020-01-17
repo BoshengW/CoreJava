@@ -8,6 +8,7 @@ public class LazyLoadSingleton {
     }
 
     public static synchronized LazyLoadSingleton getInstance() {
+        // when lazy load you need consider thread-safe issue.
         if(instance==null) {
             instance = new LazyLoadSingleton();
         }
