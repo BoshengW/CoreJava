@@ -31,7 +31,7 @@ public class MyException extends Exception {
             }
         catch (MyException myE) {
             System.out.println("get the Exception you build"); // show system.out in black
-            System.err.println("this is BW exception"); // show system.err in red
+            System.err.println("this is BW exception"); // show system.err in red·
             }
         catch (ArithmeticException e) {
                 System.out.println("something went wrong");

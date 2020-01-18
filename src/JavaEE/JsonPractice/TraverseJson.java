@@ -1,7 +1,11 @@
 package JavaEE.JsonPractice;
 
-import org.json.JSONObject;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,35 +20,19 @@ public class TraverseJson {
                 System.out.println("level"+level+", key: "+ key);
                 PassJson((JSONObject) json.get((String) key), level+1);
             } else {
-                System.out.println("level"+level+", key: "+ key);
+                System.out.println("level"+level+", key: "+ key + ", value:"+json.get((String) key));
             }
         }
 
 
     }
 
-    public static void main(String[] args) {
-        JSONObject json1 = new JSONObject();
-        JSONObject json2 = new JSONObject();
-        JSONObject json3 = new JSONObject();
-        JSONObject json4 = new JSONObject();
-        JSONObject json5 = new JSONObject();
-        JSONObject json6 = new JSONObject();
-        JSONObject json7 = new JSONObject();
-        JSONObject json8 = new JSONObject();
+    public static void main(String[] args) throws IOException, ParseException {
+        JSONParser parser = new JSONParser();
+        JSONObject data = (JSONObject) parser.parse(new FileReader("iostream.json"));
 
-        //
-        json1.put("key1",json2);
-        json1.put("key2",json3);
-        //
-        json2.put("key3",json4);
-        json2.put("key4",json6);
-        json4.put("key5",json5);
-        json3.put("key6",json7);
-        json7.put("key7",json8);
+        PassJson(data, 0);
 
-        PassJson(json1,1);
-        System.out.println(json1.toString());
 
     }
 }
